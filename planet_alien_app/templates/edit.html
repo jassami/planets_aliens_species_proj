@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Planet</h1>
+        <form action="/edit/{{planet.id}}" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="">Planet Name</label>
+                <input type="text" name="planet_name" value="{{planet.name}}">
+            </div>
+            <div>
+                <label for="">Planet Picture</label>
+                <input type="text" name="planet_pic" value="{{planet.picture}}">
+            </div>
+            <button>Edit Planet</button>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>

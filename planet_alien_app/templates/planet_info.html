@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style1.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>{{planet.name}}</h1>
+            <img src="{{planet.picture}}" alt=""><br>
+            <a href="/add_alien">Add an Alien to {{planet.name}}</a>
+            <div class="alien">
+                <h3>Alients of {{planet.name}}</h3>
+                {% for alien in planet.aliens.all %}
+                    <div>
+                        <p>{{alien.name}}</p>
+                        <img src="{{alien.picture}}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </body>
+</html>

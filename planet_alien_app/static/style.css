@@ -1,0 +1,11 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    width: 900px;
+    height: 600px;
+    background-color: rgb(188, 247, 247);
+    margin: auto;
+    padding: 20px;
+}

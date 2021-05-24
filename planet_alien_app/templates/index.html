@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Planetary Managment System</h1>
+            <table>
+                <tr>
+                    <th>Planet Name</th>
+                    <th>Number of Alients</th>
+                    <th>Actions</th>
+                </tr>
+                {% for planet in all_planets %}
+                    <tr>
+                        <td><a href="/planet_info/{{planet.id}}">{{planet.name}}</a></td>
+                        <td>{{planet.aliens.all.count}}</td>
+                        <td><a href="/edit/{{planet.id}}" style="background-color: yellow;">Edit</a> | <a href="/delete/{{planet.id}}" style="background-color: red;">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <a href="/new_planet">Create a new Planet</a>
+        </div>
+    </body>
+</html>

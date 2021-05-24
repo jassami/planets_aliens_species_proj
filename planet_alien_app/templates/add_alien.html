@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create new Alien</h1>
+        <form action="/add_alien" method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="">Alien Name</label>
+                <input type="text" name="alien_name">
+            </div>
+            <div>
+                <label for="">Alien Picture</label>
+                <input type="text" name="alien_pic">
+            </div>
+            <div>
+                <label>Choose a planet</label>
+                <select name="planet" id="">
+                    {% for planet in planets %}
+                        <option value="{{planet.id}}">{{planet.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label>Species</label>
+                <select name="species" id="">
+                    {% for species in all_species %}
+                        <option value="{{species.id}}">{{species.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button>Create Alien</button>
+        </form>
+        <a href="/">Go Back</a>
+    </div>
+</body>
+</html>
